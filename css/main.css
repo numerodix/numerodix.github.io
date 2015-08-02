@@ -1,0 +1,23 @@
+.operation_block {
+    padding: 10px;
+}
+
+.operation_bar {
+    margin: 1px;
+    border-bottom: 1px #666 solid;
+}
+
+.operation_name_prefix {
+    padding-right: 3px;
+    font-size: 90%;
+}
+
+.operand_target {
+    color: blue;
+}
+
+.operation_mnemonic {
+    padding-top: 5px;
+    font-style: italic;
+    color: #666;
+}

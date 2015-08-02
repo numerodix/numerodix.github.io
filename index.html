@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bithacksApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bit hacks</title>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+  <body ng-controller="BitHacksController">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="operation_block col-md-4" ng-repeat="op in operations">
+                <h4>{{ op.getName() }}</h4>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td class="operand_source">
+                            {{ op.getBitvectorSourceAsString() }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="operation_name_prefix">{{ op.getOperatorName() }}</td>
+                        <td class="operand_target">
+                            {{ op.getBitvectorTargetAsString() }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="operation_bar"></td>
+                        <td class="operation_bar"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="operation_result">
+                            {{ op.getBitvectorResultAsString() }}
+                        </td>
+                    </tr>
+                </table>
+                <div class="operation_mnemonic">"{{ op.getMnemonic() }}"</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/angular/js/angular.min.js"></script>
+    <script src="vendor/jquery/js/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="js/bit_routines.js"></script>
+    <script src="js/bithack_collection.js"></script>
+    <script src="js/data_definitions.js"></script>
+    <script src="js/controllers.js"></script>
+  </body>
+</html>
