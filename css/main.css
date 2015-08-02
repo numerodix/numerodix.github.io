@@ -1,5 +1,11 @@
 .operation_block {
     padding: 10px;
+    text-align: center;
+}
+
+.operation_compute_table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .operation_bar {
@@ -14,6 +20,10 @@
 
 .operand_target {
     color: blue;
+}
+
+.bitvector {
+    letter-spacing: 2px;
 }
 
 .digit_different {

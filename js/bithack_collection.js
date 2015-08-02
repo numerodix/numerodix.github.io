@@ -69,6 +69,10 @@ var bithackCollection = (function() {
 
                 if (opName === "xor") {
                     return x ^ y;
+                } else if (opName === "or") {
+                    return x | y;
+                } else if (opName === "and") {
+                    return x & y;
                 } else {
                     throw TypeError("invalid operator name: " + opName);
                 }
