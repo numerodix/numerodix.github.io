@@ -1,5 +1,12 @@
+.page-content {
+    margin-top: 75px;
+}
+
 .operation_block {
-    padding: 10px;
+    text-align: center;
+}
+
+.operation_name {
     text-align: center;
 }
 

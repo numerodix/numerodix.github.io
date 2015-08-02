@@ -12,39 +12,78 @@
   <body ng-controller="BitHacksController">
 
 
-    <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">bit hacks</a>
+        </div>
+<!--        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </nav>
+
+
+    <div class="container page-content">
         <div class="row">
             <div class="operation_block col-md-4" ng-repeat="op in operations">
-                <h4>{{ op.name }}</h4>
-                <table class='operation_compute_table'>
-                    <tr>
-                        <td></td>
-                        <td class="operand_source">
-                            <span class="bitvector" ng-bind-html='op.bitvectorSourceAsString'></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="operation_name_prefix">
-                            <span ng-bind-html='op.operatorName'></span>
-                        </td>
-                        <td class="operand_target">
-                            <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="operation_bar"></td>
-                        <td class="operation_bar"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="operation_result">
-                            <span class="bitvector" ng-bind-html='op.bitvectorResultAsString'></span>
-                        </td>
-                    </tr>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="operation_name">{{ op.name }}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+
+
+                                <table class='operation_compute_table'>
+                                    <tr>
+                                        <td></td>
+                                        <td class="operand_source">
+                                            <span class="bitvector" ng-bind-html='op.bitvectorSourceAsString'></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="operation_name_prefix">
+                                            <span ng-bind-html='op.operatorName'></span>
+                                        </td>
+                                        <td class="operand_target">
+                                            <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="operation_bar"></td>
+                                        <td class="operation_bar"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="operation_result">
+                                            <span class="bitvector" ng-bind-html='op.bitvectorResultAsString'></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="operation_mnemonic">
+                                    "<span ng-bind-html='op.mnemonic'></span>"
+                                </div>
+
+
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
-                <div class="operation_mnemonic">
-                    "<span ng-bind-html='op.mnemonic'></span>"
-                </div>
             </div>
         </div>
     </div>
