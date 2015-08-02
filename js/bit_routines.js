@@ -27,11 +27,9 @@ var bitRoutines = (function() {
 
             for (var cur = 0; cur < str_x.length; cur++) {
                 if (str_x[cur] === str_y[cur]) {
-                    //bits = bits + '<span class="' + cls_same + '">' + str_y[cur] + "</span>";
-                    bits = bits + str_y[cur];
+                    bits = bits + '<span class="' + cls_same + '">' + str_y[cur] + "</span>";
                 } else {
-                    //bits = bits + '<span class="' + cls_different + '">' + str_y[cur] + "</span>";
-                    bits = bits + str_y[cur];
+                    bits = bits + '<span class="' + cls_different + '">' + str_y[cur] + "</span>";
                 }
             }
 

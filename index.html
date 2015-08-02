@@ -15,18 +15,20 @@
     <div class="container">
         <div class="row">
             <div class="operation_block col-md-4" ng-repeat="op in operations">
-                <h4>{{ op.getName() }}</h4>
+                <h4>{{ op.name }}</h4>
                 <table>
                     <tr>
                         <td></td>
                         <td class="operand_source">
-                            {{ op.getBitvectorSourceAsString() }}
+                            <span ng-bind-html='op.bitvectorSourceAsString'></span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="operation_name_prefix">{{ op.getOperatorName() }}</td>
+                        <td class="operation_name_prefix">
+                            <span ng-bind-html='op.operatorName'></span>
+                        </td>
                         <td class="operand_target">
-                            {{ op.getBitvectorTargetAsString() }}
+                            <span ng-bind-html='op.bitvectorTargetAsString'></span>
                         </td>
                     </tr>
                     <tr>
@@ -36,16 +38,19 @@
                     <tr>
                         <td></td>
                         <td class="operation_result">
-                            {{ op.getBitvectorResultAsString() }}
+                            <span ng-bind-html='op.bitvectorResultAsString'></span>
                         </td>
                     </tr>
                 </table>
-                <div class="operation_mnemonic">"{{ op.getMnemonic() }}"</div>
+                <div class="operation_mnemonic">
+                    "<span ng-bind-html='op.mnemonic'></span>"
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="vendor/angular/js/angular.min.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular/angular-sanitize.min.js"></script>
     <script src="vendor/jquery/js/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 

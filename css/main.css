@@ -16,6 +16,10 @@
     color: blue;
 }
 
+.digit_different {
+    color: red;
+}
+
 .operation_mnemonic {
     padding-top: 5px;
     font-style: italic;
