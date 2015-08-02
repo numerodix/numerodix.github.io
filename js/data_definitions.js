@@ -147,3 +147,27 @@ bithackCollection.createOperation(
         vecAlternating,
         vecAlternating,
         mnenProducesEmpty);
+
+
+// NOT
+
+bithackCollection.createOperation(
+        "NOT alternating",
+        "not",
+        vecAlternating,
+        undefined,
+        mnenInvert);
+
+bithackCollection.createOperation(
+        "NOT empty",
+        "not",
+        vecEmpty,
+        undefined,
+        mnenInvert);
+
+bithackCollection.createOperation(
+        "NOT full",
+        "not",
+        vecFull,
+        undefined,
+        mnenInvert);
