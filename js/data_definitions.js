@@ -5,13 +5,17 @@ var vecSelected = 0x30;
 var vecFull = 0xff;
 
 var mnemNoChange = "no change";
-var mnenProducesEmpty = "produces empty";
-var mnenInvert = "inverts";
-var mnenTestSelected = "tests the selected bits";
-var mnenTurnOnAll = "turns on all bits";
-var mnenTurnOnSelected = "turns on the selected bits";
-var mnenTurnOffAll = "turns off all bits";
-var mnenToggleSelected = "toggles selected bits";
+var mnemProducesEmpty = "produces empty";
+var mnemInvert = "inverts";
+var mnemTestSelected = "tests the selected bits";
+var mnemTurnOnAll = "turns on all bits";
+var mnemTurnOnSelected = "turns on the selected bits";
+var mnemTurnOffAll = "turns off all bits";
+var mnemToggleSelected = "toggles selected bits";
+var mnemRotatesLeft1 = "rotates left by one";
+var mnemRotatesLeft2 = "rotates left by two";
+var mnemRotatesRight1 = "rotates right by one";
+var mnemRotatesRight2 = "rotates right by two";
 
 
 // AND
@@ -21,7 +25,7 @@ bithackCollection.createOperation(
         "and",
         vecAlternating,
         vecEmpty,
-        mnenTurnOffAll);
+        mnemTurnOffAll);
 
 bithackCollection.createOperation(
         "alternating AND full",
@@ -35,14 +39,14 @@ bithackCollection.createOperation(
         "and",
         vecAlternating,
         vecSelected,
-        mnenTestSelected);
+        mnemTestSelected);
 
 bithackCollection.createOperation(
         "full AND empty",
         "and",
         vecFull,
         vecEmpty,
-        mnenInvert);
+        mnemInvert);
 
 bithackCollection.createOperation(
         "full AND full",
@@ -73,14 +77,14 @@ bithackCollection.createOperation(
         "or",
         vecAlternating,
         vecFull,
-        mnenTurnOnAll);
+        mnemTurnOnAll);
 
 bithackCollection.createOperation(
         "alternating OR a given vector",
         "or",
         vecAlternating,
         vecSelected,
-        mnenTurnOnSelected);
+        mnemTurnOnSelected);
 
 bithackCollection.createOperation(
         "full OR empty",
@@ -118,14 +122,14 @@ bithackCollection.createOperation(
         "xor",
         vecAlternating,
         vecFull,
-        mnenInvert);
+        mnemInvert);
 
 bithackCollection.createOperation(
         "alternating XOR a given vector",
         "xor",
         vecAlternating,
         vecSelected,
-        mnenToggleSelected);
+        mnemToggleSelected);
 
 bithackCollection.createOperation(
         "full XOR empty",
@@ -139,14 +143,14 @@ bithackCollection.createOperation(
         "xor",
         vecFull,
         vecFull,
-        mnenInvert);
+        mnemInvert);
 
 bithackCollection.createOperation(
         "alternating XOR self",
         "xor",
         vecAlternating,
         vecAlternating,
-        mnenProducesEmpty);
+        mnemProducesEmpty);
 
 
 // NOT
@@ -156,18 +160,63 @@ bithackCollection.createOperation(
         "not",
         vecAlternating,
         undefined,
-        mnenInvert);
+        mnemInvert);
 
 bithackCollection.createOperation(
         "NOT empty",
         "not",
         vecEmpty,
         undefined,
-        mnenInvert);
+        mnemInvert);
 
 bithackCollection.createOperation(
         "NOT full",
         "not",
         vecFull,
         undefined,
-        mnenInvert);
+        mnemInvert);
+
+
+// ROT
+
+bithackCollection.createOperation(
+        "ROTL 1 empty",
+        "rotl",
+        vecEmpty,
+        1,
+        mnemNoChange);
+
+bithackCollection.createOperation(
+        "ROTL 1 full",
+        "rotl",
+        vecFull,
+        1,
+        mnemRotatesLeft1);
+
+bithackCollection.createOperation(
+        "ROTL 1 alternating",
+        "rotl",
+        vecAlternating,
+        1,
+        mnemRotatesLeft1);
+
+bithackCollection.createOperation(
+        "ROTR 1 empty",
+        "rotr",
+        vecEmpty,
+        1,
+        mnemNoChange);
+
+bithackCollection.createOperation(
+        "ROTR 1 full",
+        "rotr",
+        vecFull,
+        1,
+        mnemRotatesRight1);
+
+bithackCollection.createOperation(
+        "ROTR 1 alternating",
+        "rotr",
+        vecAlternating,
+        1,
+        mnemRotatesRight1);

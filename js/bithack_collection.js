@@ -75,6 +75,10 @@ var bithackCollection = (function() {
                     return x & y;
                 } else if (opName === "not") {
                     return ~x;
+                } else if (opName === "rotl") {
+                    return x << y;
+                } else if (opName === "rotr") {
+                    return x >> y;
                 } else {
                     throw TypeError("invalid operator name: " + opName);
                 }
