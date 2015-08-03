@@ -52,7 +52,7 @@ bithackCollection.createOperation(
         "and",
         vecFull,
         vecEmpty,
-        mnemInvert);
+        mnemTurnOffAll);
 
 bithackCollection.createOperation(
         "full AND full",
@@ -177,7 +177,7 @@ bithackCollection.createOperation(
         "xor",
         vecFull,
         vecFull,
-        mnemInvert);
+        mnemTurnOffAll);
 
 bithackCollection.createOperation(
         "empty XOR empty",
@@ -208,14 +208,14 @@ bithackCollection.createOperation(
         "not",
         vecEmpty,
         undefined,
-        mnemInvert);
+        mnemTurnOnAll);
 
 bithackCollection.createOperation(
         "NOT full",
         "not",
         vecFull,
         undefined,
-        mnemInvert);
+        mnemTurnOffAll);
 
 /*
 // ROT
