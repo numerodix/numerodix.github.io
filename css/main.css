@@ -24,10 +24,6 @@
 
 .operator_tag {
     float: left;
-}
-
-.operator_tag {
-    float: left;
     margin-top: 5px;  /* try to place it in the corner */
 }
 
