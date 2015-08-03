@@ -37,7 +37,7 @@
     <div class="container page-content">
         <div class="row">
             <div class="operation_block col-md-4" ng-repeat="op in operations">
-                <table class="table table-bordered">
+                <table class="table table-bordered operation_block_table">
                     <thead>
                         <tr>
                             <th class="operation_name">{{ op.name }}</th>
@@ -60,8 +60,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="operation_name_prefix">
-                                            <span ng-bind-html='op.operatorSymbol'></span>
+                                        <td>
+                                            <span class='operator_symbol' ng-bind-html='op.operatorSymbol'></span>
                                         </td>
                                         <td class="operand_target">
                                             <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'></span>
@@ -84,6 +84,15 @@
                                         </td>
                                     </tr>
                                 </table>
+
+                                <div class="operator_tag">
+                                    <span class="label label-success" ng-bind-html='op.operatorName | uppercase'></span>
+                                </div>
+                                <!-- only for layout, not supposed to be visible -->
+                                <div class="operator_tag_counterweight">
+                                    <span class="label label-warning" ng-bind-html='op.operatorName | uppercase'></span>
+                                </div>
+
                                 <div class="operation_mnemonic">
                                     "<span ng-bind-html='op.mnemonic'></span>"
                                 </div>

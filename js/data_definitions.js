@@ -5,7 +5,6 @@ var vecSelected = 0x30;
 var vecFull = 0xff;
 
 var mnemNoChange = "no change";
-var mnemProducesEmpty = "produces empty";
 var mnemInvert = "inverts";
 var mnemTestSelected = "tests the selected bits";
 var mnemTurnOnAll = "turns on all bits";
@@ -150,7 +149,7 @@ bithackCollection.createOperation(
         "xor",
         vecAlternating,
         vecAlternating,
-        mnemProducesEmpty);
+        mnemTurnOffAll);
 
 /*
 // NOT

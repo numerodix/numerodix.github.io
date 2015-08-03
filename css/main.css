@@ -2,9 +2,43 @@
     margin-top: 75px;
 }
 
+
 .operation_block {
     text-align: center;
 }
+
+.operation_block table.operation_block_table thead tr th {
+    background-color: #ffd;
+}
+
+/* reduce padding of outer table */
+.operation_block table.operation_block_table tbody tr td {
+    padding: 3px;
+}
+
+/* make sure it doesn't apply to inner table *sigh* */
+.operation_block table.operation_compute_table tbody tr td {
+    padding: inherit;
+}
+
+
+.operator_tag {
+    float: left;
+}
+
+.operator_tag {
+    float: left;
+    margin-top: 5px;  /* try to place it in the corner */
+}
+
+.operator_tag_counterweight {
+    float: right;
+}
+
+.operator_tag_counterweight .label-warning {
+    background-color: #fff;
+}
+
 
 .operation_name {
     text-align: center;
@@ -20,9 +54,10 @@
     border-bottom: 1px #666 solid;
 }
 
-.operation_name_prefix {
-    padding-right: 3px;
+.operator_symbol {
     font-size: 90%;
+    vertical-align: 2px;
+    padding-right: 5px;
 }
 
 .operand_target {
