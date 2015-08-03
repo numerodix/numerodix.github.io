@@ -1,5 +1,5 @@
 var bithacksApp = angular.module('bithacksApp', ['ngSanitize']);
 
 bithacksApp.controller('BitHacksController', ['$scope', function($scope) {
-    $scope.operations = bithackCollection.getOperationList();
+    $scope.operation_sets = bithackCollection.getOperationSets();
 }]);

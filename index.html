@@ -35,74 +35,82 @@
 
 
     <div class="container page-content">
-        <div class="row">
-            <div class="operation_block col-md-4" ng-repeat="op in operations">
-                <table class="table table-bordered operation_block_table">
-                    <thead>
-                        <tr>
-                            <th class="operation_name">{{ op.name }}</th>
-                        </tr>
-                    </thead>
+        <div class="operator_block" ng-repeat='opset in operation_sets'>
+            <h3>{{ opset.operatorName | uppercase }}</h3>
 
-                    <tbody>
-                        <tr>
-                            <td>
+            <div class="row">
+                <div class="operation_block col-md-4" ng-repeat="op in opset.operations">
+                    <table class="table table-bordered operation_block_table">
+                        <thead>
+                            <tr>
+                                <th class="operation_name">
+                                    <span ng-bind-html='op.name'></span>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+
+                                    <!-- compute table -->
+                                    <table class='operation_compute_table'>
+                                        <tr>
+                                            <td></td>
+                                            <td class="operand_source">
+                                                <span class="bitvector" ng-bind-html='op.bitvectorSourceAsString'></span>
+                                            </td>
+                                            <td>
+                                                <span class="hexvalue" ng-bind-html='op.bitvectorSourceAsHex'></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class='operator_symbol' ng-bind-html='op.operatorSymbol'></span>
+                                            </td>
+                                            <td class="operand_target">
+                                                <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'></span>
+                                            </td>
+                                            <td>
+                                                <span class="hexvalue" ng-bind-html='op.bitvectorTargetAsHex'></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="operation_bar"></td>
+                                            <td class="operation_bar"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td class="operation_result">
+                                                <span class="bitvector" ng-bind-html='op.bitvectorResultAsString'></span>
+                                            </td>
+                                            <td>
+                                                <span class="hexvalue" ng-bind-html='op.bitvectorResultAsHex'></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- /compute table -->
+
+                                    <div class="operator_tag">
+                                        <span class="label {{ op.labelName }}" ng-bind-html='op.operatorName | uppercase'></span>
+                                    </div>
+                                    <!-- only for layout, not supposed to be visible -->
+                                    <div class="operator_tag_counterweight">
+                                        <span class="label label-warning" ng-bind-html='op.operatorName | uppercase'></span>
+                                    </div>
+
+                                    <div class="operation_mnemonic">
+                                        "<span ng-bind-html='op.mnemonic'></span>"
+                                    </div>
 
 
-                                <table class='operation_compute_table'>
-                                    <tr>
-                                        <td></td>
-                                        <td class="operand_source">
-                                            <span class="bitvector" ng-bind-html='op.bitvectorSourceAsString'></span>
-                                        </td>
-                                        <td>
-                                            <span class="hexvalue" ng-bind-html='op.bitvectorSourceAsHex'></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class='operator_symbol' ng-bind-html='op.operatorSymbol'></span>
-                                        </td>
-                                        <td class="operand_target">
-                                            <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'></span>
-                                        </td>
-                                        <td>
-                                            <span class="hexvalue" ng-bind-html='op.bitvectorTargetAsHex'></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="operation_bar"></td>
-                                        <td class="operation_bar"></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td class="operation_result">
-                                            <span class="bitvector" ng-bind-html='op.bitvectorResultAsString'></span>
-                                        </td>
-                                        <td>
-                                            <span class="hexvalue" ng-bind-html='op.bitvectorResultAsHex'></span>
-                                        </td>
-                                    </tr>
-                                </table>
-
-                                <div class="operator_tag">
-                                    <span class="label {{ op.labelName }}" ng-bind-html='op.operatorName | uppercase'></span>
-                                </div>
-                                <!-- only for layout, not supposed to be visible -->
-                                <div class="operator_tag_counterweight">
-                                    <span class="label label-warning" ng-bind-html='op.operatorName | uppercase'></span>
-                                </div>
-
-                                <div class="operation_mnemonic">
-                                    "<span ng-bind-html='op.mnemonic'></span>"
-                                </div>
-
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
         </div>
     </div>
 

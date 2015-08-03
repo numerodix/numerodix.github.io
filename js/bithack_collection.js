@@ -1,5 +1,6 @@
 var bithackCollection = (function() {
-    var allOperations = [];
+    var m_allOperations = [];
+    var m_operationsByOperator = {};
 
     var bitvectorWidth = 8;
 
@@ -159,13 +160,31 @@ var bithackCollection = (function() {
                 mnemonic: operation.getMnemonic(),
             };
 
-            allOperations.push(view);
+            // Add it to our internal data structures
+            m_allOperations.push(view);
+            if (m_operationsByOperator[operator_name] === undefined) {
+                m_operationsByOperator[operator_name] = [];
+            }
+            m_operationsByOperator[operator_name].push(view);
 
             return view;
         },
 
         getOperationList: function() {
-            return allOperations;
+            return m_allOperations;
+        },
+
+        getOperationSets: function() {
+            var list = [];
+
+            for (var key in m_operationsByOperator) {
+                list.push({
+                    operatorName: key,
+                    operations: m_operationsByOperator[key],
+                });
+            }
+
+            return list;
         }
     }
 
