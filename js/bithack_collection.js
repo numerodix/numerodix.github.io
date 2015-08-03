@@ -174,15 +174,52 @@ var bithackCollection = (function() {
             return m_allOperations;
         },
 
-        getOperationSets: function() {
+        getOperationSets: function(mnemonicFilter) {
             var list = [];
 
+            // loop over operation sets
             for (var key in m_operationsByOperator) {
-                list.push({
+                var operation_views = m_operationsByOperator[key];
+
+                var set_container = {
                     operatorName: key,
-                    operations: m_operationsByOperator[key],
-                });
+                    operations: []
+                };
+
+                // loop over operations in the current set
+                for (var idx in operation_views) {
+                    var operation_view = operation_views[idx];
+                    var exclude = false;
+
+                    // if we have a filter it must either be "all" or match the operation
+                    if ((mnemonicFilter !== undefined)
+                            && ((mnemonicFilter !== "all")
+                                && (mnemonicFilter !== operation_view.mnemonic))) {
+                        exclude = true;
+                    }
+
+                    if (!exclude) {
+                        set_container.operations.push(operation_view);
+                    }
+                }
+
+                list.push(set_container);
             }
+
+            return list;
+        },
+
+        getAllMnemonics: function() {
+            var list = [];
+
+            for (var i=0; i < m_allOperations.length; i++) {
+                list.push(m_allOperations[i].mnemonic);
+            }
+
+            list.sort();
+            list = _.unique(list);
+
+            list.unshift("all");  // put catch-all at the beginning
 
             return list;
         }

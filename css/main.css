@@ -3,6 +3,15 @@
 }
 
 
+.filter_block {
+}
+
+
+.operator_block {
+    clear: both;
+    padding-top: 20px;
+}
+
 .operation_block {
     text-align: center;
 }

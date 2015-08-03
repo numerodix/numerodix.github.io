@@ -15,12 +15,12 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<!--          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </button> -->
           <a class="navbar-brand" href="#">bitwise operators</a>
         </div>
 <!--        <div id="navbar" class="collapse navbar-collapse">
@@ -35,6 +35,19 @@
 
 
     <div class="container page-content">
+
+        <!-- filtering ui -->
+        <div class="filter_block">
+            <h4>Mnemonics</h4>
+            <ul class="list-unstyled" ng-repeat='mnemonic in mnemonics'>
+                <li class="col-md-4">
+                    <a ng-click="applyFilter(mnemonic)">{{ mnemonic }}</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- content display -->
         <div class="operator_block" ng-repeat='opset in operation_sets'>
             <h3>{{ opset.operatorName | uppercase }}</h3>
 
@@ -44,7 +57,7 @@
                         <thead>
                             <tr>
                                 <th class="operation_name">
-                                    <span ng-bind-html='op.name'></span>
+                                    <span ng-bind-html='op.name'/>
                                 </th>
                             </tr>
                         </thead>
@@ -58,21 +71,21 @@
                                         <tr>
                                             <td></td>
                                             <td class="operand_source">
-                                                <span class="bitvector" ng-bind-html='op.bitvectorSourceAsString'></span>
+                                                <span class="bitvector" ng-bind-html='op.bitvectorSourceAsString'/>
                                             </td>
                                             <td>
-                                                <span class="hexvalue" ng-bind-html='op.bitvectorSourceAsHex'></span>
+                                                <span class="hexvalue" ng-bind-html='op.bitvectorSourceAsHex'/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <span class='operator_symbol' ng-bind-html='op.operatorSymbol'></span>
+                                                <span class='operator_symbol' ng-bind-html='op.operatorSymbol'/>
                                             </td>
                                             <td class="operand_target">
-                                                <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'></span>
+                                                <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'/>
                                             </td>
                                             <td>
-                                                <span class="hexvalue" ng-bind-html='op.bitvectorTargetAsHex'></span>
+                                                <span class="hexvalue" ng-bind-html='op.bitvectorTargetAsHex'/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -82,25 +95,25 @@
                                         <tr>
                                             <td></td>
                                             <td class="operation_result">
-                                                <span class="bitvector" ng-bind-html='op.bitvectorResultAsString'></span>
+                                                <span class="bitvector" ng-bind-html='op.bitvectorResultAsString'/>
                                             </td>
                                             <td>
-                                                <span class="hexvalue" ng-bind-html='op.bitvectorResultAsHex'></span>
+                                                <span class="hexvalue" ng-bind-html='op.bitvectorResultAsHex'/>
                                             </td>
                                         </tr>
                                     </table>
                                     <!-- /compute table -->
 
                                     <div class="operator_tag">
-                                        <span class="label {{ op.labelName }}" ng-bind-html='op.operatorName | uppercase'></span>
+                                        <span class="label {{ op.labelName }}" ng-bind-html='op.operatorName | uppercase'/>
                                     </div>
                                     <!-- only for layout, not supposed to be visible -->
                                     <div class="operator_tag_counterweight">
-                                        <span class="label label-warning" ng-bind-html='op.operatorName | uppercase'></span>
+                                        <span class="label label-warning" ng-bind-html='op.operatorName | uppercase'/>
                                     </div>
 
                                     <div class="operation_mnemonic">
-                                        "<span ng-bind-html='op.mnemonic'></span>"
+                                        "<span ng-bind-html='op.mnemonic'/>
                                     </div>
 
 
@@ -118,6 +131,7 @@
     <script src="vendor/angular/angular-sanitize.min.js"></script>
     <script src="vendor/jquery/js/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/underscore/underscore-min.js"></script>
 
     <script src="js/bit_routines.js"></script>
     <script src="js/bithack_collection.js"></script>
