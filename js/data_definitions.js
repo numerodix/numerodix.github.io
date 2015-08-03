@@ -41,18 +41,18 @@ bithackCollection.createOperation(
         mnemTestSelected);
 
 bithackCollection.createOperation(
+        "alternating AND self",
+        "and",
+        vecAlternating,
+        vecAlternating,
+        mnemNoChange);
+
+bithackCollection.createOperation(
         "full AND empty",
         "and",
         vecFull,
         vecEmpty,
         mnemInvert);
-
-bithackCollection.createOperation(
-        "empty AND empty",
-        "and",
-        vecEmpty,
-        vecEmpty,
-        mnemNoChange);
 
 bithackCollection.createOperation(
         "full AND full",
@@ -62,10 +62,17 @@ bithackCollection.createOperation(
         mnemNoChange);
 
 bithackCollection.createOperation(
-        "alternating AND self",
+        "empty AND empty",
         "and",
-        vecAlternating,
-        vecAlternating,
+        vecEmpty,
+        vecEmpty,
+        mnemNoChange);
+
+bithackCollection.createOperation(
+        "empty AND full",
+        "and",
+        vecEmpty,
+        vecFull,
         mnemNoChange);
 
 
@@ -93,16 +100,16 @@ bithackCollection.createOperation(
         mnemTurnOnSelected);
 
 bithackCollection.createOperation(
-        "full OR empty",
+        "alternating OR self",
         "or",
-        vecFull,
-        vecEmpty,
+        vecAlternating,
+        vecAlternating,
         mnemNoChange);
 
 bithackCollection.createOperation(
-        "empty OR empty",
+        "full OR empty",
         "or",
-        vecEmpty,
+        vecFull,
         vecEmpty,
         mnemNoChange);
 
@@ -114,11 +121,18 @@ bithackCollection.createOperation(
         mnemNoChange);
 
 bithackCollection.createOperation(
-        "alternating OR self",
+        "empty OR empty",
         "or",
-        vecAlternating,
-        vecAlternating,
+        vecEmpty,
+        vecEmpty,
         mnemNoChange);
+
+bithackCollection.createOperation(
+        "empty OR full",
+        "or",
+        vecEmpty,
+        vecFull,
+        mnemTurnOnAll);
 
 
 // XOR
@@ -145,16 +159,16 @@ bithackCollection.createOperation(
         mnemToggleSelected);
 
 bithackCollection.createOperation(
+        "alternating XOR self",
+        "xor",
+        vecAlternating,
+        vecAlternating,
+        mnemTurnOffAll);
+
+bithackCollection.createOperation(
         "full XOR empty",
         "xor",
         vecFull,
-        vecEmpty,
-        mnemNoChange);
-
-bithackCollection.createOperation(
-        "empty XOR empty",
-        "xor",
-        vecEmpty,
         vecEmpty,
         mnemNoChange);
 
@@ -166,11 +180,18 @@ bithackCollection.createOperation(
         mnemInvert);
 
 bithackCollection.createOperation(
-        "alternating XOR self",
+        "empty XOR empty",
         "xor",
-        vecAlternating,
-        vecAlternating,
-        mnemTurnOffAll);
+        vecEmpty,
+        vecEmpty,
+        mnemNoChange);
+
+bithackCollection.createOperation(
+        "empty XOR full",
+        "xor",
+        vecEmpty,
+        vecFull,
+        mnemTurnOnAll);
 
 /*
 // NOT
