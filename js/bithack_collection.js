@@ -33,6 +33,10 @@ var bithackCollection = (function() {
                 if (arity === 1) {
                     if (opName === "not") {
                         return "~";
+                    } else if (opName === "shl") {
+                        return "<<";
+                    } else if (opName === "shr") {
+                        return ">>";
                     }
 
                 } else if (arity === 2) {
@@ -59,6 +63,10 @@ var bithackCollection = (function() {
                     return 'label-danger';
                 } else if (opName === "not") {
                     return 'label-default';
+                } else if (opName === "shl") {
+                    return 'label-warning';
+                } else if (opName === "shr") {
+                    return 'label-success';
                 } else {
                     throw TypeError("invalid operator name: " + opName);
                 }
@@ -153,6 +161,10 @@ var bithackCollection = (function() {
                     return x & y;
                 } else if (opName === "not") {
                     return ~x;
+                } else if (opName === "shl") {
+                    return x << 1;
+                } else if (opName === "shr") {
+                    return x >> 1;
                 } else {
                     throw TypeError("invalid operator name: " + opName);
                 }

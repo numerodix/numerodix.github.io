@@ -18,13 +18,20 @@ var bitRoutines = (function() {
         },
 
         intAsHexString: function(x, width) {
+            var max = 1 << width;
+
             if (x === undefined) {
                 return "";
             }
 
             // it's not supposed to be a signed int, we want to display a positive value
             if (x < 0) {
-                x = (1 << width) + x;
+                x = max + x;
+            }
+
+            // it can't go over the max size
+            if (x > max) {
+                x = x - max;
             }
 
             return "0x" + x.toString(16);

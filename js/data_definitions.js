@@ -11,10 +11,8 @@ var mnemTurnOnAll = "turns on all bits";
 var mnemTurnOnSelected = "turns on the selected bits";
 var mnemTurnOffAll = "turns off all bits";
 var mnemToggleSelected = "toggles selected bits";
-var mnemRotatesLeft1 = "rotates left by one";
-var mnemRotatesLeft2 = "rotates left by two";
-var mnemRotatesRight1 = "rotates right by one";
-var mnemRotatesRight2 = "rotates right by two";
+var mnemShiftLeft = "shifts to the left";
+var mnemShiftRight = "shifts to the right";
 
 
 // AND
@@ -217,48 +215,50 @@ bithackCollection.createOperation(
         undefined,
         mnemTurnOffAll);
 
-/*
-// ROT
+
+// SHL
 
 bithackCollection.createOperation(
-        "ROTL 1 empty",
-        "rotl",
+        "SHL 1 alternating",
+        "shl",
+        vecAlternating,
+        undefined,
+        mnemShiftLeft);
+
+bithackCollection.createOperation(
+        "SHL 1 empty",
+        "shl",
         vecEmpty,
-        1,
+        undefined,
         mnemNoChange);
 
 bithackCollection.createOperation(
-        "ROTL 1 full",
-        "rotl",
+        "SHL 1 full",
+        "shl",
         vecFull,
-        1,
-        mnemRotatesLeft1);
+        undefined,
+        mnemShiftLeft);
+
+
+// SHR
 
 bithackCollection.createOperation(
-        "ROTL 1 alternating",
-        "rotl",
+        "SHR 1 alternating",
+        "shr",
         vecAlternating,
-        1,
-        mnemRotatesLeft1);
+        undefined,
+        mnemShiftRight);
 
 bithackCollection.createOperation(
-        "ROTR 1 empty",
-        "rotr",
+        "SHR 1 empty",
+        "shr",
         vecEmpty,
-        1,
+        undefined,
         mnemNoChange);
 
 bithackCollection.createOperation(
-        "ROTR 1 full",
-        "rotr",
+        "SHR 1 full",
+        "shr",
         vecFull,
-        1,
-        mnemRotatesRight1);
-
-bithackCollection.createOperation(
-        "ROTR 1 alternating",
-        "rotr",
-        vecAlternating,
-        1,
-        mnemRotatesRight1);
-*/
+        undefined,
+        mnemShiftRight);
