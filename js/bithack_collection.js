@@ -143,7 +143,7 @@ var bithackCollection = (function() {
                     bitvector_source, bitvector_target,
                     mnemonic);
 
-            var view = {
+            var operation_view = {
                 name: operation.getName(),
                 operatorName: operation.getOperatorName(),
                 operatorSymbol: operation.getOperatorSymbol(),
@@ -161,13 +161,13 @@ var bithackCollection = (function() {
             };
 
             // Add it to our internal data structures
-            m_allOperations.push(view);
+            m_allOperations.push(operation_view);
             if (m_operationsByOperator[operator_name] === undefined) {
                 m_operationsByOperator[operator_name] = [];
             }
-            m_operationsByOperator[operator_name].push(view);
+            m_operationsByOperator[operator_name].push(operation_view);
 
-            return view;
+            return operation_view;
         },
 
         getOperationList: function() {
