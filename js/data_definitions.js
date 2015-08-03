@@ -152,7 +152,7 @@ bithackCollection.createOperation(
         vecAlternating,
         mnemProducesEmpty);
 
-
+/*
 // NOT
 
 bithackCollection.createOperation(
@@ -220,3 +220,4 @@ bithackCollection.createOperation(
         vecAlternating,
         1,
         mnemRotatesRight1);
+*/

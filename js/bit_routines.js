@@ -17,6 +17,10 @@ var bitRoutines = (function() {
             return bits;
         },
 
+        intAsHexString: function(x) {
+            return "0x" + x.toString(16);
+        },
+
         diffMarkupBitVectors: function(
                                   str_x, str_y,
                                   cls_same, cls_different

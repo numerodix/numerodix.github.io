@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>bit hacks</title>
+    <title>bitwise operators</title>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">bitwise operations</a>
+          <a class="navbar-brand" href="#">bitwise operators</a>
         </div>
 <!--        <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -55,13 +55,19 @@
                                         <td class="operand_source">
                                             <span class="bitvector" ng-bind-html='op.bitvectorSourceAsString'></span>
                                         </td>
+                                        <td>
+                                            <span class="hexvalue" ng-bind-html='op.bitvectorSourceAsHex'></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="operation_name_prefix">
-                                            <span ng-bind-html='op.operatorName'></span>
+                                            <span ng-bind-html='op.operatorSymbol'></span>
                                         </td>
                                         <td class="operand_target">
                                             <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'></span>
+                                        </td>
+                                        <td>
+                                            <span class="hexvalue" ng-bind-html='op.bitvectorTargetAsHex'></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -72,6 +78,9 @@
                                         <td></td>
                                         <td class="operation_result">
                                             <span class="bitvector" ng-bind-html='op.bitvectorResultAsString'></span>
+                                        </td>
+                                        <td>
+                                            <span class="hexvalue" ng-bind-html='op.bitvectorResultAsHex'></span>
                                         </td>
                                     </tr>
                                 </table>

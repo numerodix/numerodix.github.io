@@ -33,6 +33,12 @@
     letter-spacing: 2px;
 }
 
+.hexvalue {
+    padding-left: 3px;
+    font-size: 90%;
+    color: #666;
+}
+
 .digit_different {
     color: red;
 }

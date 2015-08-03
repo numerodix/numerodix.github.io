@@ -18,6 +18,26 @@ var bithackCollection = (function() {
                 return operator_name;
             },
 
+            getOperatorSymbol: function() {
+                var opName = this.getOperatorName();
+
+                if (opName === "xor") {
+                    return '^';
+                } else if (opName === "or") {
+                    return '|';
+                } else if (opName === "and") {
+                    return '&';
+                } else if (opName === "not") {
+                    return '~';
+                } else if (opName === "rotl") {
+                    return '<<';
+                } else if (opName === "rotr") {
+                    return '>>';
+                } else {
+                    throw TypeError("invalid operator name: " + opName);
+                }
+            },
+
             getBitvectorSource: function() {
                 return bitvector_source;
             },
@@ -63,6 +83,23 @@ var bithackCollection = (function() {
                         'digit_different');
             },
 
+            // bit vectors as hex
+
+            getBitvectorSourceAsHex: function() {
+                return bitRoutines.intAsHexString(
+                        this.getBitvectorSource());
+            },
+
+            getBitvectorTargetAsHex: function() {
+                return bitRoutines.intAsHexString(
+                        this.getBitvectorTarget());
+            },
+
+            getBitvectorResultAsHex: function() {
+                return bitRoutines.intAsHexString(
+                        this.getBitvectorResult());
+            },
+
 
             applyOperator: function(x, y) {
                 var opName = this.getOperatorName();
@@ -106,12 +143,16 @@ var bithackCollection = (function() {
             var view = {
                 name: operation.getName(),
                 operatorName: operation.getOperatorName(),
+                operatorSymbol: operation.getOperatorSymbol(),
                 bitvectorSource: operation.getBitvectorSource(),
                 bitvectorTarget: operation.getBitvectorTarget(),
                 bitvectorResult: operation.getBitvectorResult(),
                 bitvectorSourceAsString: operation.getBitvectorSourceAsString(),
                 bitvectorTargetAsString: operation.getBitvectorTargetAsString(),
                 bitvectorResultAsString: operation.getBitvectorResultAsString(),
+                bitvectorSourceAsHex: operation.getBitvectorSourceAsHex(),
+                bitvectorTargetAsHex: operation.getBitvectorTargetAsHex(),
+                bitvectorResultAsHex: operation.getBitvectorResultAsHex(),
                 mnemonic: operation.getMnemonic(),
             };
 
