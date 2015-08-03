@@ -69,7 +69,9 @@
                                     <!-- compute table -->
                                     <table class='operation_compute_table'>
                                         <tr>
-                                            <td></td>
+                                            <td>
+                                                <span class='operator_symbol' ng-bind-html='op.operatorSymbolUnary'/>
+                                            </td>
                                             <td class="operand_source">
                                                 <span class="bitvector" ng-bind-html='op.bitvectorSourceAsString'/>
                                             </td>
@@ -79,7 +81,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <span class='operator_symbol' ng-bind-html='op.operatorSymbol'/>
+                                                <span class='operator_symbol' ng-bind-html='op.operatorSymbolBinary'/>
                                             </td>
                                             <td class="operand_target">
                                                 <span class="bitvector" ng-bind-html='op.bitvectorTargetAsString'/>

@@ -17,7 +17,16 @@ var bitRoutines = (function() {
             return bits;
         },
 
-        intAsHexString: function(x) {
+        intAsHexString: function(x, width) {
+            if (x === undefined) {
+                return "";
+            }
+
+            // it's not supposed to be a signed int, we want to display a positive value
+            if (x < 0) {
+                x = (1 << width) + x;
+            }
+
             return "0x" + x.toString(16);
         },
 

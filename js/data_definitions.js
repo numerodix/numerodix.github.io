@@ -193,7 +193,7 @@ bithackCollection.createOperation(
         vecFull,
         mnemTurnOnAll);
 
-/*
+
 // NOT
 
 bithackCollection.createOperation(
@@ -217,7 +217,7 @@ bithackCollection.createOperation(
         undefined,
         mnemInvert);
 
-
+/*
 // ROT
 
 bithackCollection.createOperation(

@@ -15,22 +15,37 @@ var bithackCollection = (function() {
                 return name;
             },
 
+            getArity: function() {
+                if (bitvector_target === undefined) {
+                    return 1;
+                }
+
+                return 2;
+            },
+
             getOperatorName: function() {
                 return operator_name;
             },
 
-            getOperatorSymbol: function() {
+            getOperatorSymbol: function(arity) {
                 var opName = this.getOperatorName();
 
-                if (opName === "xor") {
-                    return '^';
-                } else if (opName === "or") {
-                    return '|';
-                } else if (opName === "and") {
-                    return '&';
-                } else {
-                    throw TypeError("invalid operator name: " + opName);
+                if (arity === 1) {
+                    if (opName === "not") {
+                        return "~";
+                    }
+
+                } else if (arity === 2) {
+                    if (opName === "xor") {
+                        return '^';
+                    } else if (opName === "or") {
+                        return '|';
+                    } else if (opName === "and") {
+                        return '&';
+                    }
                 }
+
+                return "";
             },
 
             getLabelName: function() {
@@ -42,6 +57,8 @@ var bithackCollection = (function() {
                     return 'label-info';
                 } else if (opName === "and") {
                     return 'label-danger';
+                } else if (opName === "not") {
+                    return 'label-default';
                 } else {
                     throw TypeError("invalid operator name: " + opName);
                 }
@@ -52,6 +69,12 @@ var bithackCollection = (function() {
             },
 
             getBitvectorTarget: function() {
+                var arity = this.getArity();
+
+                if (arity === 1) {
+                    return undefined;
+                }
+
                 return bitvector_target;
             },
 
@@ -75,6 +98,12 @@ var bithackCollection = (function() {
             },
 
             getBitvectorTargetAsString: function() {
+                var arity = this.getArity();
+
+                if (arity === 1) {
+                    return "";
+                }
+
                 return bitRoutines.intAsBitString(
                         this.getBitvectorTarget(),
                         bitvectorWidth);
@@ -96,17 +125,20 @@ var bithackCollection = (function() {
 
             getBitvectorSourceAsHex: function() {
                 return bitRoutines.intAsHexString(
-                        this.getBitvectorSource());
+                        this.getBitvectorSource(),
+                        bitvectorWidth);
             },
 
             getBitvectorTargetAsHex: function() {
                 return bitRoutines.intAsHexString(
-                        this.getBitvectorTarget());
+                        this.getBitvectorTarget(),
+                        bitvectorWidth);
             },
 
             getBitvectorResultAsHex: function() {
                 return bitRoutines.intAsHexString(
-                        this.getBitvectorResult());
+                        this.getBitvectorResult(),
+                        bitvectorWidth);
             },
 
 
@@ -119,6 +151,8 @@ var bithackCollection = (function() {
                     return x | y;
                 } else if (opName === "and") {
                     return x & y;
+                } else if (opName === "not") {
+                    return ~x;
                 } else {
                     throw TypeError("invalid operator name: " + opName);
                 }
@@ -146,7 +180,8 @@ var bithackCollection = (function() {
             var operation_view = {
                 name: operation.getName(),
                 operatorName: operation.getOperatorName(),
-                operatorSymbol: operation.getOperatorSymbol(),
+                operatorSymbolUnary: operation.getOperatorSymbol(1),
+                operatorSymbolBinary: operation.getOperatorSymbol(2),
                 labelName: operation.getLabelName(),
                 bitvectorSource: operation.getBitvectorSource(),
                 bitvectorTarget: operation.getBitvectorTarget(),
