@@ -27,12 +27,20 @@ var bithackCollection = (function() {
                     return '|';
                 } else if (opName === "and") {
                     return '&';
-                } else if (opName === "not") {
-                    return '~';
-                } else if (opName === "rotl") {
-                    return '<<';
-                } else if (opName === "rotr") {
-                    return '>>';
+                } else {
+                    throw TypeError("invalid operator name: " + opName);
+                }
+            },
+
+            getLabelName: function() {
+                var opName = this.getOperatorName();
+
+                if (opName === "xor") {
+                    return 'label-primary';
+                } else if (opName === "or") {
+                    return 'label-info';
+                } else if (opName === "and") {
+                    return 'label-danger';
                 } else {
                     throw TypeError("invalid operator name: " + opName);
                 }
@@ -110,12 +118,6 @@ var bithackCollection = (function() {
                     return x | y;
                 } else if (opName === "and") {
                     return x & y;
-                } else if (opName === "not") {
-                    return ~x;
-                } else if (opName === "rotl") {
-                    return x << y;
-                } else if (opName === "rotr") {
-                    return x >> y;
                 } else {
                     throw TypeError("invalid operator name: " + opName);
                 }
@@ -144,6 +146,7 @@ var bithackCollection = (function() {
                 name: operation.getName(),
                 operatorName: operation.getOperatorName(),
                 operatorSymbol: operation.getOperatorSymbol(),
+                labelName: operation.getLabelName(),
                 bitvectorSource: operation.getBitvectorSource(),
                 bitvectorTarget: operation.getBitvectorTarget(),
                 bitvectorResult: operation.getBitvectorResult(),
