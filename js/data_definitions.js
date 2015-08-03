@@ -2,6 +2,7 @@
 var vecEmpty = 0x0;
 var vecAlternating = 0x55;
 var vecSelected = 0x30;
+var vecInvSelected = 0xcf;
 var vecFull = 0xff;
 
 var mnemNoChange = "no change";
@@ -9,6 +10,7 @@ var mnemInvert = "inverts";
 var mnemTestSelected = "tests the selected bits";
 var mnemTurnOnAll = "turns on all bits";
 var mnemTurnOnSelected = "turns on the selected bits";
+var mnemTurnOffNotSelected = "turns off the not selected bits";
 var mnemTurnOffAll = "turns off all bits";
 var mnemToggleSelected = "toggles selected bits";
 var mnemShiftLeft = "shifts to the left";
@@ -37,6 +39,13 @@ bithackCollection.createOperation(
         vecAlternating,
         vecSelected,
         mnemTestSelected);
+
+bithackCollection.createOperation(
+        "alternating AND an inverted given vector",
+        "and",
+        vecAlternating,
+        vecInvSelected,
+        mnemTurnOffNotSelected);
 
 bithackCollection.createOperation(
         "alternating AND self",
@@ -98,6 +107,13 @@ bithackCollection.createOperation(
         mnemTurnOnSelected);
 
 bithackCollection.createOperation(
+        "alternating OR an inverted given vector",
+        "or",
+        vecAlternating,
+        vecInvSelected,
+        mnemTurnOnSelected);
+
+bithackCollection.createOperation(
         "alternating OR self",
         "or",
         vecAlternating,
@@ -154,6 +170,13 @@ bithackCollection.createOperation(
         "xor",
         vecAlternating,
         vecSelected,
+        mnemToggleSelected);
+
+bithackCollection.createOperation(
+        "alternating XOR an inverted given vector",
+        "xor",
+        vecAlternating,
+        vecInvSelected,
         mnemToggleSelected);
 
 bithackCollection.createOperation(
